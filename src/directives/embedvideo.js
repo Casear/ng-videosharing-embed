@@ -9,7 +9,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
 
         },
         link: function ($scope, $element, $attrs) {
-            var iframe = e[0].children[0]
+            var iframe = $element[0].children[0]
             if (iframe.attachEvent){
                 iframe.attachEvent("onload", function(){
                     $scope.i = i(function(){
@@ -30,10 +30,7 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
                     $scope.i = null
                 }
             });
-            $scope.key = function(event){
-              event.preventDefault()
-              console.log('log')
-            }
+            
             $attrs.$observe('width', function(w) {
               $scope.width = w;
             });
