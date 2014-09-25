@@ -12,13 +12,13 @@ angular.module('videosharing-embed').directive('embedVideo', [ '$filter' , 'Regi
             var iframe = $element[0].children[0]
             if (iframe.attachEvent){
                 iframe.attachEvent("onload", function(){
-                    $scope.i = i(function(){
+                    $scope.i = $interval(function(){
                         $window.focus()
                     },500)
                 });
             } else {
                 iframe.onload = function(){
-                    $scope.i = i(function(){
+                    $scope.i = $interval(function(){
                         $window.focus()
                     },500) 
                 };
